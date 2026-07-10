@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalshi Strategy Backtester</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Replay-first quant research</p>
+        <h1>Kalshi Strategy Backtester</h1>
+        <p class="lede">
+          Create immutable replay datasets, migrate existing strategy projects, and run
+          liquidity-aware demo backtests against timestamped prediction-market events.
+        </p>
+        <div id="status" class="status good">Ready</div>
+      </section>
+
+      <section class="grid">
+        <div class="panel action-card">
+          <h2>1. Replay Dataset</h2>
+          <p>Seed a sample dataset through the API and confirm persistence.</p>
+          <input id="dataset-id" type="text" value="demo-dataset" />
+          <div class="button-row">
+            <button id="create-dataset">Create sample dataset</button>
+            <button id="refresh-datasets">Refresh list</button>
+          </div>
+          <p class="muted">Datasets: <span id="dataset-list">none loaded</span></p>
+        </div>
+
+        <div class="panel action-card">
+          <h2>2. Strategy Migration</h2>
+          <p>Upload a zipped Python strategy project to generate a replay-safe migration report.</p>
+          <input id="strategy-file" type="file" accept=".zip" />
+          <button id="migrate-project" disabled>Upload ZIP</button>
+          <p class="muted">Selected: <span id="selected-file">none</span></p>
+        </div>
+
+        <div class="panel action-card">
+          <h2>3. Demo Backtest</h2>
+          <p>Run the sample order book, price, and settlement replay through the engine.</p>
+          <button id="run-demo">Run demo backtest</button>
+          <p class="muted">Uses partial-fill liquidity assumptions.</p>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <section class="panel">
+          <h2>Backtest Result</h2>
+          <pre id="backtest-result">Run the demo backtest.</pre>
+        </section>
+        <section class="panel">
+          <h2>Migration Report</h2>
+          <pre id="migration-report">Upload a ZIP project.</pre>
+        </section>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

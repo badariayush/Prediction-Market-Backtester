@@ -1,0 +1,39 @@
+[tool.pytest.ini_options]
+testpaths = [
+  "apps/api/tests",
+  "packages/historical-data/tests",
+  "packages/backtest-core/tests",
+  "packages/strategy-sdk/tests",
+]
+pythonpath = [
+  "apps/api/src",
+  "packages/historical-data/src",
+  "packages/backtest-core/src",
+  "packages/strategy-sdk/src",
+]
+
+[tool.ruff]
+line-length = 100
+src = [
+  "apps/api/src",
+  "apps/api/tests",
+  "packages/historical-data/src",
+  "packages/backtest-core/src",
+  "packages/strategy-sdk/src",
+  "packages/historical-data/tests",
+  "packages/backtest-core/tests",
+  "packages/strategy-sdk/tests",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = [
+  "apps/api/src",
+  "packages/historical-data/src",
+  "packages/backtest-core/src",
+  "packages/strategy-sdk/src",
+]
